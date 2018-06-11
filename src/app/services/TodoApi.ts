@@ -12,7 +12,7 @@ export default class TodoApi {
     }
 
     addTodo(todo: Todo) {
-        this._todos.push(todo)
+        this._todos.push(todo);
     }
 
     removeTodo(todoDel: Todo) {
