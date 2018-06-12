@@ -13,22 +13,22 @@ export class ApiServiceService {
   constructor(private http: HttpClient) { }
 
   getTodos() {
-    return this.http.get<Array<Todo>>(`${API_BASE_URL}${API_TODOS}`).toPromise();
+    return this.http.get<Array<Todo>>(`${API_BASE_URL}${API_TODOS}`);
   }
 
   getTodoById(id: number) {
-    return this.http.get<Todo>(`${API_BASE_URL}${API_TODOS}/${id}`).toPromise();
+    return this.http.get<Todo>(`${API_BASE_URL}${API_TODOS}/${id}`);
   }
 
   postTodo(todo: Todo) {
-    return this.http.post(`${API_BASE_URL}${API_TODOS}`, JSON.stringify(todo)).toPromise();
+    return this.http.post(`${API_BASE_URL}${API_TODOS}`, JSON.stringify(todo));
   }
 
   deleteTodo(id: number) {
-    return this.http.delete(`${API_BASE_URL}${API_TODOS}/${id}`).toPromise();
+    return this.http.delete(`${API_BASE_URL}${API_TODOS}/${id}`);
   }
 
   putTodo(todo: Todo) {
-    return this.http.put(`${API_BASE_URL}${API_TODOS}/${todo.id}`, JSON.stringify(todo)).toPromise();
+    return this.http.put(`${API_BASE_URL}${API_TODOS}/${todo.id}`, JSON.stringify(todo));
   }
 }

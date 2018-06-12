@@ -1,27 +1,26 @@
 import { Todo } from "../classes/Todo";
 import TodoApi from "./TodoApi";
 import { Injectable } from "@angular/core";
-import { ApiServiceService } from "./api/api-service.service";
 
 @Injectable()
 export default class TodoServices {
 
-    constructor(private todoApi: ApiServiceService) { }
+    constructor(private todoApi: TodoApi) { }
     getTodos(): Promise<Array<Todo>> {
         //return this.todoApi.fetchTodos();
-        return this.todoApi.getTodos();
+        return this.todoApi.fetchTodosServer();
     }
 
     addTodo(todo: Todo) {
-        this.todoApi.postTodo(todo);
+        this.todoApi.addTodoServer(todo);
     }
 
     removeTodo(todo: Todo) {
         //this.todoApi.removeTodo(todo);
-        this.todoApi.deleteTodo(todo.id);
+        this.todoApi.deleteTodoById(todo.id);
     }
 
     majTodo(todo: Todo) {
-        this.todoApi.putTodo(todo);
+        this.todoApi.updateTodo(todo);
     }
 }

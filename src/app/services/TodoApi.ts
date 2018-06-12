@@ -23,4 +23,25 @@ export default class TodoApi {
     removeTodo(todoDel: Todo) {
         this._todos.splice(this._todos.indexOf(todoDel), 1);
     }
+
+    //Version serveur REST
+    fetchTodosServer(): Promise<Array<Todo>> {
+        return this.apiService.getTodos().toPromise();
+    }
+
+    fetchTodoByIdServer(id: number): Promise<Todo> {
+        return this.apiService.getTodoById(id).toPromise();
+    }
+
+    addTodoServer(todo: Todo) {
+        return this.apiService.postTodo(todo).toPromise();
+    }
+
+    deleteTodoById(id: number){
+        return this.apiService.deleteTodo(id).toPromise();
+    }
+
+    updateTodo(todo: Todo){
+        return this.apiService.putTodo(todo).toPromise();
+    }
 }
