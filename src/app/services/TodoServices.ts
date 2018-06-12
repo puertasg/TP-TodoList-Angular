@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 export default class TodoServices {
 
     constructor(private todoApi: TodoApi) { }
-    getTodos(): Array<Todo> {
+    getTodos(): Promise<Array<Todo>> {
         return this.todoApi.fetchTodos();
     }
 

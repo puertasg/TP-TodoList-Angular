@@ -1,20 +1,14 @@
 import { Todo } from "../classes/Todo";
-import { ApiServiceService } from "./api/api-service.service";
 
 export default class TodoApi {
 
-    constructor(private apiService:ApiServiceService){}
-
     private _todos: Array<Todo> = [];
-    fetchTodos(): Array<Todo> {
-        this.apiService.getTodos().toPromise().then(data => {
-            this._todos = data;
+    fetchTodos(): Promise<Array<Todo>> {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(this._todos)
+            }, 1);
         });
-        return this._todos;
-    }
-
-    getTodo(){
-        
     }
 
     addTodo(todo: Todo) {
