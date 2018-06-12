@@ -1,3 +1,4 @@
-<span [class.barred]="todo?.isDone">{{todo?.title | uppercase}}</span>
+<span [class.barred]="todo?.isDone">{{todo?._title | uppercase}}</span>
 <input type="checkbox" [checked]="todo?.isDone" (click)="barTitle()">
+<input type="hidden" [value]="todo?.id">
 <button type="button" (click)="deleteTodo()">Supprimer</button>

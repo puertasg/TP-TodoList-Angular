@@ -1,10 +1,14 @@
 class Todo {
     private _title: string;
     private _isDone: boolean;
+    private _id: number;
 
-    constructor(title: string, isDone: boolean) {
+    constructor(title: string, isDone: boolean, id?: number) {
         this._title = title;
         this._isDone = isDone;
+        if (id) {
+            this._id = id;
+        }
     }
 
     /**
@@ -24,6 +28,14 @@ class Todo {
     }
 
     /**
+     * Getter id
+     * @return {number}
+     */
+    public get id(): number {
+        return this._id;
+    }
+
+    /**
      * Setter title
      * @param {string} value
      */
@@ -37,6 +49,14 @@ class Todo {
      */
     public set isDone(value: boolean) {
         this._isDone = value;
+    }
+
+    /**
+     * Setter id
+     * @param {number} value
+     */
+    public set id(value: number) {
+        this._id = value;
     }
 
 }
