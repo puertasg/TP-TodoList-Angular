@@ -21,7 +21,7 @@ export class ApiServiceService {
   }
 
   postTodo(todo: Todo) {
-    return this.http.post(`${API_BASE_URL}${API_TODOS}`, JSON.stringify(todo));
+    return this.http.post(`${API_BASE_URL}${API_TODOS}`, todo);
   }
 
   deleteTodo(id: number) {
@@ -29,6 +29,6 @@ export class ApiServiceService {
   }
 
   putTodo(todo: Todo) {
-    return this.http.put(`${API_BASE_URL}${API_TODOS}/${todo.id}`, JSON.stringify(todo));
+    return this.http.put(`${API_BASE_URL}${API_TODOS}/${todo.id}`, todo);
   }
 }

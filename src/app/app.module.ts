@@ -9,13 +9,15 @@ import { FormsModule } from "@angular/forms";
 import TodoApi from './services/TodoApi';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddJsonInterceptorService } from './services/interceptors/add-json-interceptor.service';
+import { TodoContainerComponent } from './todo-container/todo-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TodoItemComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    TodoContainerComponent
   ],
   imports: [
     BrowserModule,

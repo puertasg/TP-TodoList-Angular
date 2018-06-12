@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../classes/Todo';
 import TodoServices from '../services/TodoServices';
 
@@ -15,6 +15,9 @@ export class TodoItemComponent implements OnInit {
   @Input()
   todo: Todo;
 
+  @Output()
+  todoDeleted:EventEmitter<Todo> = new EventEmitter<Todo>();
+
   constructor(private todoService: TodoServices) { }
 
   ngOnInit() {
@@ -22,9 +25,11 @@ export class TodoItemComponent implements OnInit {
 
   barTitle() {
     this.todo.isDone = !this.todo.isDone;
+    this.todoService.majTodo(this.todo);
   }
 
   deleteTodo() {
     this.todoService.removeTodo(this.todo);
+    this.todoDeleted.emit();
   }
 }

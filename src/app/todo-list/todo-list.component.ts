@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../classes/Todo';
 import TodoServices from '../services/TodoServices';
 
@@ -11,27 +11,14 @@ import TodoServices from '../services/TodoServices';
   ]
 })
 export class TodoListComponent implements OnInit {
-  private _todos: Array<Todo>;
+
+  @Input()
   todoItems: Promise<Array<Todo>>;
+
   constructor(private todoService: TodoServices) { }
-
-  /**
-   * Getter todos
-   * @return {Array<Todo>}
-   */
-  public get todos(): Array<Todo> {
-    return this._todos;
-  }
-
-  /**
-   * Setter todos
-   * @param {Array<Todo>} value
-   */
-  public set todos(value: Array<Todo>) {
-    this._todos = value;
-  }
 
   ngOnInit() {
     this.todoItems = this.todoService.getTodos();
   }
+
 }

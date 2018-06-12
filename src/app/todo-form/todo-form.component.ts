@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../classes/Todo';
 import TodoServices from '../services/TodoServices';
 
@@ -13,6 +13,9 @@ import TodoServices from '../services/TodoServices';
 export class TodoFormComponent implements OnInit {
   private _title: string = "";
   private _isDone = false;
+
+  @Input()
+  todoItems: Promise<Array<Todo>>;
 
   constructor(private todoService: TodoServices) { }
 
