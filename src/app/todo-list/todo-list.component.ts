@@ -12,6 +12,7 @@ import TodoServices from '../services/TodoServices';
 })
 export class TodoListComponent implements OnInit {
   private _todos: Array<Todo>;
+  todoItems: Promise<Array<Todo>>;
   constructor(private todoService: TodoServices) { }
 
   /**
@@ -31,6 +32,6 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todoService.getTodos().then(value => this._todos = value);
+    this.todoItems = this.todoService.getTodos();
   }
 }
