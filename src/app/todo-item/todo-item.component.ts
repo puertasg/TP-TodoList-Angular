@@ -16,7 +16,7 @@ export class TodoItemComponent implements OnInit {
   todo: Todo;
 
   @Output()
-  todoDeleted:EventEmitter<Todo> = new EventEmitter<Todo>();
+  deleteEventEmitter: EventEmitter<Promise<Array<Todo>>> = new EventEmitter();
 
   constructor(private todoService: TodoServices) { }
 
@@ -30,6 +30,6 @@ export class TodoItemComponent implements OnInit {
 
   deleteTodo() {
     this.todoService.removeTodo(this.todo);
-    this.todoDeleted.emit();
+    this.deleteEventEmitter.emit();
   }
 }

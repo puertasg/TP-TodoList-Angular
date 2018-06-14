@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../classes/Todo';
 import TodoServices from '../services/TodoServices';
 
@@ -15,10 +15,17 @@ export class TodoListComponent implements OnInit {
   @Input()
   todoItems: Promise<Array<Todo>>;
 
+  @Output()
+  updateEventEmitter: EventEmitter<Promise<Array<Todo>>> = new EventEmitter();
+
   constructor(private todoService: TodoServices) { }
 
   ngOnInit() {
     this.todoItems = this.todoService.getTodos();
+  }
+
+  sendEventToParent() {
+    this.updateEventEmitter.emit();
   }
 
 }

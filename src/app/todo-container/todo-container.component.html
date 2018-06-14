@@ -1,2 +1,2 @@
-<app-todo-form [todoItems]="todoItems"></app-todo-form>
-<app-todo-list [todoItems]="todoItems"></app-todo-list>
+<app-todo-form [todoItems]="todoItems" (updateEventEmitter)="refreshList()"></app-todo-form>
+<app-todo-list [todoItems]="todoItems" (updateEventEmitter)="refreshList()"></app-todo-list>
